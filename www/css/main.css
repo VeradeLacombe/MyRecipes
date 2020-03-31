@@ -4,6 +4,7 @@ body {
 	font-style: normal;
 	font-weight: 300;
 	color: #262626;
+	margin: 0;
 }
 
 .center {
@@ -17,13 +18,6 @@ body {
 .centerHorizontally {
 	margin: auto;
 	max-width: 80vw;
-}
-
-h1 { 
-	text-align: center; 
-	color: #FFB1A4;
-	margin-top: 10vh;
-	margin-bottom: 10vh;
 }
 
 .Bigbutton {
@@ -40,6 +34,21 @@ h1 {
 }
 
 #backButton {
-	font-size:36px;
-	color:#FFB1A4;
+	font-size: 36px;
+	color: #FFB1A4;
+	position: absolute;
+	left: 20px;
+}
+
+#header {
+	background-color: #595050;
+	color: #FFB1A4;
+	text-align: center;
+	font-size: 30px;
+	border-bottom: 2px solid #FFB1A4;
+	padding: 15px;
+	margin-bottom: 50px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 }
