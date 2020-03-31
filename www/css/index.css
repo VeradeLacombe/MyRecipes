@@ -11,20 +11,3 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-
-button {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20%;
-	width: 200px;
-	height: 50px;
-	border-radius: 12px;
-	border: none;
-	background-color: #FFB1A4 ;
-	color: #262626;
-	font-family: neuzeit-grotesk, sans-serif;
-	font-style: normal;
-	font-weight: 300; 
-	font-size: 16px;
-}
