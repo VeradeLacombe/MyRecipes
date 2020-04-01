@@ -53,6 +53,7 @@ function getBase64Image(img) {
 
 function addRecipe() {
 	var name = document.getElementById("name").value;
+	if (name == '') return;
 	
 	var types = [];
 	if (document.getElementById("breakfast").checked) types.push("Breakfast");
@@ -61,20 +62,24 @@ function addRecipe() {
 	if (document.getElementById("snack").checked) types.push("Snack");
 	
 	var time = document.getElementById("time").value;
+	if (time == '') return;
 	
 	var servings = document.getElementById("servings").value;
+	if (servings == '') return;
 	
 	var ingredients = [];
 	for (var i = 0; i <= ingredientsIndex; i++) {
 		var ingredient = document.getElementById("ingredient" + i).value;
 		if (ingredient != '') ingredients.push(ingredient);
 	}
+	if (ingredients.length == 0) return;
 	
-	var method = document.getElementById("method");
+	var method = document.getElementById("method").value;
+	if (method == '') return;
 	
 	var image = "data:image/png;base64," + getBase64Image(document.getElementById("PicturePreview"));
 	
 	var recipe = new Recipe(name, types, time, servings, image, ingredients, method);
 	
-	console.log(recipe);
+	recipe.addToLocalStorage();
 }

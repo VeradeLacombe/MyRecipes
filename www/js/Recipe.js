@@ -68,4 +68,80 @@ export default class Recipe {
 		
 		return item;
 	}
+	
+	addToLocalStorage(storageName) {
+		// If the localStorage list does not exist yet
+		if (localStorage.getItem(storageName) == undefined) {
+			// Create the localStorage list, containing this recipe
+			localStorage.setItem(storageName, JSON.stringify([this]));
+		}
+		else {
+			// Retrieve the localStorage list
+			var list = JSON.parse(localStorage.getItem(storageName));
+			
+			// Add this recipe to the list
+			list.push(this);
+			
+			// Update the localStorage
+			localStorage.setItem(storageName, JSON.stringify(list));
+		}
+	}
+	
+	deleteFromLocalStorage(storageName) {
+		// If the localStorage list does not exist
+		if (localStorage.getItem(storageName) == undefined) {
+			// The recipe is not in the list, so we don't need to delete it
+		}
+		else {
+			// Retrieve the localStorage list
+			var list = JSON.parse(localStorage.getItem(storageName));
+			
+			// For each recipe in the list
+			for (var i = 0; i < list.length; i++) {
+				// Get that recipe
+				var otherRecipe = Recipe.unserialize(list[i]);
+				
+				// If that recipe is equal to this recipe
+				if (this.equals(otherRecipe)) {
+					// Then delete the recipe from the list
+					list.splice(i, 1);
+					i--;
+				}
+			}
+			
+			// Update the localStorage
+			localStorage.setItem(storageName, JSON.stringify(list));
+		}
+	}
+	
+	equals(otherRecipe) {
+		return JSON.stringify(this) === JSON.stringify(otherRecipe);
+	}
+	
+	// Transform the Recipe object into a string
+	toString() {
+		return JSON.stringify({
+			"name": this.name,
+			"types": this.types,
+			"time": this.time,
+			"servings": this.servings,
+			"image": this.image,
+			"ingredients": this.ingredients,
+			"method": this.method,
+		});
+	}
+	
+	// Transform the string back into a Recipe object
+	unserialize(data) {
+		data = JSON.parse(data);
+		var recipe = new Recipe;
+		recipe.name = data.name;
+		recipe.types = data.types;
+		recipe.time = data.time;
+		recipe.servings = data.servings;
+		recipe.image = data.image;
+		recipe.ingredients = data.ingredients;
+		recipe.method = data.method;
+		return recipe;
+	}
 }
