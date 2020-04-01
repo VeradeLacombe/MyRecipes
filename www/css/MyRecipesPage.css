@@ -56,10 +56,8 @@
 	float: left;
 }
 
-.fa-plus-circle {
-	font-size: 45px;
+.w3-button {
 	position: fixed;
 	right: 20px;
 	bottom: 20px;
-	color: #FFB1A4;
 }
