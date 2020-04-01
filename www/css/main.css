@@ -67,10 +67,10 @@ body {
 	font-size: 30px;
 	border-bottom: 2px solid #FFB1A4;
 	padding: 15px;
-	margin-bottom: 50px;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	z-index: 10;
 }
 
 #sidenav {

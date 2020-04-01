@@ -37,7 +37,7 @@ export default class Recipe {
 		}
 		var typeString = typeContainer.innerHTML;
 		typeContainer.innerHTML = typeString.slice(0, -2);
-		item.appendChild(typeContainer)
+		item.appendChild(typeContainer);
 		
 		// Create time icon
 		var timeIcon = document.createElement("i");
@@ -73,14 +73,14 @@ export default class Recipe {
 		// If the localStorage list does not exist yet
 		if (localStorage.getItem(storageName) == undefined) {
 			// Create the localStorage list, containing this recipe
-			localStorage.setItem(storageName, JSON.stringify([this]));
+			localStorage.setItem(storageName, JSON.stringify([JSON.stringify(this)]));
 		}
 		else {
 			// Retrieve the localStorage list
 			var list = JSON.parse(localStorage.getItem(storageName));
 			
 			// Add this recipe to the list
-			list.push(this);
+			list.push(JSON.stringify(this));
 			
 			// Update the localStorage
 			localStorage.setItem(storageName, JSON.stringify(list));
@@ -132,7 +132,7 @@ export default class Recipe {
 	}
 	
 	// Transform the string back into a Recipe object
-	unserialize(data) {
+	static unserialize(data) {
 		data = JSON.parse(data);
 		var recipe = new Recipe;
 		recipe.name = data.name;

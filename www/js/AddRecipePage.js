@@ -81,5 +81,7 @@ function addRecipe() {
 	
 	var recipe = new Recipe(name, types, time, servings, image, ingredients, method);
 	
-	recipe.addToLocalStorage();
+	recipe.addToLocalStorage("myRecipes");
+	
+	window.location.href = "MyRecipesPage.html";
 }

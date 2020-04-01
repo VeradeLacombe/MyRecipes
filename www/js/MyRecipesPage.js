@@ -8,8 +8,22 @@ function UpdateRecipeList() {
 	recipeContainer.innerHTML = '';
 	
 	for (var recipe of recipes) {
-		recipeContainer.appendChild(recipe.createListItem());
+		DisplayRecipe(recipe)
 	}
+	
+	// Retrieve the recipe list from localStorage
+	if (localStorage.myRecipes != undefined) {
+		var list = JSON.parse(localStorage.myRecipes);
+		
+		for (var serializedRecipe of list) {
+			DisplayRecipe(Recipe.unserialize(serializedRecipe));
+		}
+		
+	}
+}
+
+function DisplayRecipe(recipe) {
+	document.getElementById("recipeContainer").appendChild(recipe.createListItem());
 }
 
 $(document).ready(function() {
