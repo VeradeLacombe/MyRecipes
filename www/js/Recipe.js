@@ -48,7 +48,7 @@ export default class Recipe {
 		// Create time container
 		var timeContainer = document.createElement("p");
 		timeContainer.className = "TimeContainer";
-		timeContainer.innerHTML = this.time + " minutes";
+		timeContainer.innerHTML = this.time;
 		item.appendChild(timeContainer);
 		
 		// Create break

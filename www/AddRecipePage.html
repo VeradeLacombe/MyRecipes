@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/RegisterPage.css" rel="stylesheet" type="text/css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">app.initialize();</script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="js/OffCanvasMenu.js"></script>
+	<script type="module" src="js/AddRecipePage.js"></script>
+	<title>Add Recipe Page</title>
+</head>
+
+<body>
+	<div id="appContainer">
+		<div id="header">
+			<i class="fas fa-angle-left" id= "backButton" onClick="window.location.href = 'MyRecipesPage.html';"></i>
+			Add new Recipe
+		</div>
+		
+		<form class="centerHorizontally">
+			<div class="Container">
+				<label>"Recipe Name</label>
+				<input type="text" id="name" required>
+			</div>
+			
+			<div class="Container">
+				<label>Type of meal</label><br><br>
+				<input type="checkbox" id="breakfast">
+				<label for="breakfast">Breakfast</label><br>
+				<input type="checkbox" id="lunch">
+				<label for="lunch">Lunch</label><br>
+				<input type="checkbox" id="dinner">
+				<label for="dinner">Dinner</label><br>
+				<input type="checkbox" id="snack">
+				<label for="snack">Snack</label>
+			</div>
+
+			<div class="Container">
+				<label>Preperation time</label>
+				<input type="time" id="time" required>
+			</div>
+
+			<div class="Container">
+				<label>Servings</label>
+				<input type="number" id="servings" required>
+			</div>
+			
+			<div class="Container" id="Ingredients">
+				<label>Ingredients</label>
+				<input type="text" id="ingredient0" required>
+			</div>
+			
+			<div class="Container">
+				<label>Preperation method</label><br>
+				<textarea id="method" required></textarea>
+			</div>
+			
+			<div class="Container">
+			<label>Picture</label><br>
+				<input type="file" id="Picture" name="Picture" accept="image/*"><br>
+				<img id="PicturePreview" alt="Preview">
+			</div>
+
+			<button class="Bigbutton" id="addRecipe">Add Recipe</button>
+		</form>
+	</div>
+</body>
+</html>
