@@ -69,6 +69,63 @@ export default class Recipe {
 		return item;
 	}
 	
+	// For the my Recipes page
+	createListItemWithHeartButton() {
+		var item = this.createListItem();
+		
+		// Create heart button
+		var heartButton = document.createElement("i");
+		heartButton.className = "material-icons";
+		
+		if(this.isInLocalStorage("favoriteRecipes")) {
+			// Make the heart button filled and red
+			heartButton.innerHTML = "favorite";
+			heartButton.style.color = "red";
+		}
+		else {
+			// Make the heart button open and black
+			heartButton.innerHTML = "favorite_border";
+		}
+		
+		heartButton.recipe = this;
+		heartButton.onclick = function() {FavouriteButtonClick(this);};
+		item.appendChild(heartButton);
+		
+		return item;
+	}
+	
+	// For the discover page
+	createListItemWithAddButton() {
+		
+	}
+	
+	isInLocalStorage(storageName) {
+		// If the localStorage list does not exist
+		if (localStorage.getItem(storageName) == undefined) {
+			// Then it can't be in the list
+			return false;
+		}
+		else {
+			// Retrieve the localStorage list
+			var list = JSON.parse(localStorage.getItem(storageName));
+			
+			// For each recipe in the list
+			for (var i = 0; i < list.length; i++) {
+				// Get that recipe
+				var otherRecipe = Recipe.unserialize(list[i]);
+				
+				// If that recipe is equal to this recipe
+				if (this.equals(otherRecipe)) {
+					// Then this recipe is in the list
+					return true;
+				}
+			}
+			
+			// If it isn't found, it's not in the list
+			return false;
+		}
+	}
+	
 	addToLocalStorage(storageName) {
 		// If the localStorage list does not exist yet
 		if (localStorage.getItem(storageName) == undefined) {
@@ -143,5 +200,30 @@ export default class Recipe {
 		recipe.ingredients = data.ingredients;
 		recipe.method = data.method;
 		return recipe;
+	}
+}
+
+function FavouriteButtonClick(heartButtonElement) {
+	var recipe = heartButtonElement.recipe;
+	
+	if (heartButtonElement.innerHTML == "favorite_border") {
+		// Add the recipe to favourites
+		recipe.addToLocalStorage("favoriteRecipes");
+		
+		// Fill the heart button
+		heartButtonElement.innerHTML = "favorite";
+		
+		// Make the heart button red
+		heartButtonElement.style.color = "red";
+	}
+	else {
+		// Remove the recipe from favourites
+		recipe.deleteFromLocalStorage("favoriteRecipes");
+		
+		// Empty the heart button
+		heartButtonElement.innerHTML = "favorite_border";
+		
+		// Make the heart button red
+		heartButtonElement.style.color = "#262626";
 	}
 }

@@ -23,7 +23,7 @@ function UpdateRecipeList() {
 }
 
 function DisplayRecipe(recipe) {
-	document.getElementById("recipeContainer").appendChild(recipe.createListItem());
+	document.getElementById("recipeContainer").appendChild(recipe.createListItemWithHeartButton());
 }
 
 $(document).ready(function() {
