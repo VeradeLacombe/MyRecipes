@@ -41,7 +41,8 @@ $(document).ready(function() {
 		
 		// Edit button works
 		document.getElementById("edit").onclick = function() {
-			// TODO
+			localStorage.previousPage2 = window.location.href;
+			window.location.href = "EditRecipePage.html";
 		};
 		
 		// Delete buttons works
