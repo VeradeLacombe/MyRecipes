@@ -29,38 +29,43 @@ export default class Recipe {
 		nameContainer.innerHTML = this.name;
 		item.appendChild(nameContainer);
 		
+		// Create text container
+		var textContainer = document.createElement("div");
+		textContainer.className = "TextContainer";
+		item.appendChild(textContainer);
+		
 		// Create type container
 		var typeContainer = document.createElement("p");
 		typeContainer.className = "TypeContainer";
 		typeContainer.innerHTML = this.typesToString();
-		item.appendChild(typeContainer);
+		textContainer.appendChild(typeContainer);
 		
 		// Create time icon
 		var timeIcon = document.createElement("i");
 		timeIcon.className = "fas";
 		timeIcon.innerHTML = "&#xf017;";
-		item.appendChild(timeIcon);
+		textContainer.appendChild(timeIcon);
 		
 		// Create time container
 		var timeContainer = document.createElement("p");
 		timeContainer.className = "TimeContainer";
 		timeContainer.innerHTML = this.time;
-		item.appendChild(timeContainer);
+		textContainer.appendChild(timeContainer);
 		
 		// Create break
-		item.appendChild(document.createElement("br"));
+		textContainer.appendChild(document.createElement("br"));
 		
 		// Create servings icon
 		var servingsIcon = document.createElement("i");
 		servingsIcon.className = "fas";
 		servingsIcon.innerHTML = "&#xf0c0;";
-		item.appendChild(servingsIcon);
+		textContainer.appendChild(servingsIcon);
 		
 		// Create servings container
 		var servingsContainer = document.createElement("p");
 		servingsContainer.className = "ServingsContainer";
 		servingsContainer.innerHTML = this.servings + " servings";
-		item.appendChild(servingsContainer);
+		textContainer.appendChild(servingsContainer);
 		
 		// Make clickable
 		item.recipe = this;
@@ -76,6 +81,11 @@ export default class Recipe {
 	// For the my Recipes page
 	createListItemWithHeartButton() {
 		var item = this.createListItem();
+		
+		// Create icon container
+		var iconContainer = document.createElement("div");
+		iconContainer.className = "IconContainer";
+		item.appendChild(iconContainer);
 		
 		// Create heart button
 		var heartButton = document.createElement("i");
@@ -93,7 +103,7 @@ export default class Recipe {
 		
 		heartButton.recipe = this;
 		heartButton.onclick = function() {FavouriteButtonClick(this);};
-		item.appendChild(heartButton);
+		iconContainer.appendChild(heartButton);
 		
 		return item;
 	}
@@ -102,13 +112,18 @@ export default class Recipe {
 	createListItemWithAddButton() {
 		var item = this.createListItem();
 		
+		// Create icon container
+		var iconContainer = document.createElement("div");
+		iconContainer.className = "IconContainer";
+		item.appendChild(iconContainer);
+		
 		// Create add button
 		var addButton = document.createElement("i");
 		addButton.className = "w3-button w3-xlarge w3-circle w3-teal";
 		addButton.innerHTML = "+";
 		addButton.recipe = this;
 		addButton.onclick = function() {AddButtonClick(this)};
-		item.appendChild(addButton);
+		iconContainer.appendChild(addButton);
 		
 		return item;
 	}
@@ -264,6 +279,6 @@ function AddButtonClick(addButtonElement) {
 	var recipe = addButtonElement.recipe;
 	recipe.addToLocalStorage("myRecipes");
 	recipe.deleteFromLocalStorage("discoverRecipes");
-	addButtonElement.parentElement.style.display = "none";
+	addButtonElement.parentElement.parentElement.style.display = "none";
 	
 }

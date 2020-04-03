@@ -16,7 +16,7 @@ function UpdateRecipeList() {
 	}
 	
 	$(".material-icons").on("click", function() {
-		this.parentElement.style.display = "none";
+		this.parentElement.parentElement.style.display = "none";
 	})
 }
 
