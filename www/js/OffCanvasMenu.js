@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	document.getElementById("navUsername").innerHTML = localStorage.username;
+})
+
 function openNav() {
 	var sideNavStyle = document.getElementById("sidenav").style;
 	sideNavStyle.width = "250px";
