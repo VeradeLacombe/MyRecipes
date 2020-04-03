@@ -123,3 +123,39 @@ body {
   #sidenav {padding-top: 15px;}
   #sidenav a {font-size: 18px;}
 }
+
+.filterButton { 
+	background-color: transparent; 
+	border: none; 
+	color: #FFB1A4;
+	padding: 0px;
+}
+
+.filterButton:focus {
+	outline: none;
+}
+
+#filterBar { 
+	background-color: #595050;
+	text-align: justify;
+	height: 2.2em;
+    line-height: 2;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #FFB1A4;
+}
+
+#filterBar:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#allButton {
+	color: #F2F2F2; 
+	border-bottom: 2px solid #F2F2F2;
+	margin-left: 15px;
+}
+
+#snackButton { 
+	margin-right: 15px;
+}
