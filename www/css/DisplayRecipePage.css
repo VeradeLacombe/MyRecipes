@@ -1,0 +1,30 @@
+#image {
+	max-width: 100%;
+	border: 6px solid #FFB1A4;
+}
+
+.Container { 
+	margin-top: 25px;
+}
+
+#LastContainer {
+	margin-bottom: 25px;
+}
+
+h3 { 
+	margin-bottom: 10px;
+	font-weight: bold;
+	border-bottom: 2px solid #F2F2F2;
+}
+
+#types, #time, #servings {
+	display: inline;
+	margin: 0;
+	margin-left: 5px;
+}
+
+#Nicebox{
+	background-color: #FFB1A4;
+	padding: 10px;
+	border: 4px solid #FFB1A4;
+}

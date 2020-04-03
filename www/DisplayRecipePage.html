@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   	<link href="css/DisplayRecipePage.css" rel="stylesheet" type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">app.initialize();</script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="js/OffCanvasMenu.js"></script>
+	<script type="module" src="js/DisplayRecipePage.js"></script>
+	<title>Display Recipe Page</title>
+</head>
+
+<body>
+	<div id="appContainer">
+		<div id="header">
+			<i class="fas fa-angle-left" id="backButton"></i>
+		</div>
+		
+		<div class="centerHorizontally">
+						
+			<div class="Container">
+				<img id="image" src="img/Freshly_baked_banana_bread.jpg" alt = "photo">
+			</div>
+			
+			<div id="Nicebox">
+				<i class="fas">&#xf2e7;</i>
+				<p id="types">Breakfast, Lunch</p>
+				<br>
+				<i class="fas">&#xf017;</i>
+				<p id="time">1:30</p>
+				<br>
+				<i class="fas">&#xf0c0;</i>
+				<p id="servings">5 servings</p>
+			</div>
+			
+			<div class="Container">
+				
+			</div>
+			
+			<div class="Container">
+				<h3>Ingredients</h3>
+				<ul id="ingredientsList"></ul>
+			</div>
+			
+			<div class="Container" id="LastContainer">
+				<h3>Method</h3>
+				<div id="method"></div>
+			</div>
+		</div>
+	
+	</div>
+		
+	
+</body>
+</html>

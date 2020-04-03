@@ -32,11 +32,7 @@ export default class Recipe {
 		// Create type container
 		var typeContainer = document.createElement("p");
 		typeContainer.className = "TypeContainer";
-		for (var type of this.types) {
-			typeContainer.innerHTML += type + ", "
-		}
-		var typeString = typeContainer.innerHTML;
-		typeContainer.innerHTML = typeString.slice(0, -2);
+		typeContainer.innerHTML = this.typesToString();
 		item.appendChild(typeContainer);
 		
 		// Create time icon
@@ -65,6 +61,14 @@ export default class Recipe {
 		servingsContainer.className = "ServingsContainer";
 		servingsContainer.innerHTML = this.servings + " servings";
 		item.appendChild(servingsContainer);
+		
+		// Make clickable
+		item.recipe = this;
+		item.onclick = function() { 
+			localStorage.displayRecipe = this.recipe;
+			localStorage.previousPage = window.location.href;
+			window.location.href = "DisplayRecipePage.html";
+		}
 		
 		return item;
 	}
@@ -175,6 +179,20 @@ export default class Recipe {
 		return JSON.stringify(this) === JSON.stringify(otherRecipe);
 	}
 	
+	typesToString() {
+		var typeString = "";
+		
+		for (var type of this.types) {
+			// Put every type in the string
+			typeString += type + ", "
+		}
+		
+		// Remove the last ", "
+		typeString = typeString.slice(0, -2);
+		
+		return typeString;
+	}
+	
 	// Transform the Recipe object into a string
 	toString() {
 		return JSON.stringify({
@@ -226,4 +244,6 @@ function FavouriteButtonClick(heartButtonElement) {
 		// Make the heart button red
 		heartButtonElement.style.color = "#262626";
 	}
+	
+	event.stopPropagation();
 }
