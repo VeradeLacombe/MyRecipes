@@ -100,7 +100,17 @@ export default class Recipe {
 	
 	// For the discover page
 	createListItemWithAddButton() {
+		var item = this.createListItem();
 		
+		// Create add button
+		var addButton = document.createElement("i");
+		addButton.className = "w3-button w3-xlarge w3-circle w3-teal";
+		addButton.innerHTML = "+";
+		addButton.recipe = this;
+		addButton.onclick = function() {AddButtonClick(this)};
+		item.appendChild(addButton);
+		
+		return item;
 	}
 	
 	isInLocalStorage(storageName) {
@@ -246,4 +256,14 @@ function FavouriteButtonClick(heartButtonElement) {
 	}
 	
 	event.stopPropagation();
+}
+
+function AddButtonClick(addButtonElement) {
+	event.stopPropagation();
+	
+	var recipe = addButtonElement.recipe;
+	recipe.addToLocalStorage("myRecipes");
+	recipe.deleteFromLocalStorage("discoverRecipes");
+	addButtonElement.parentElement.style.display = "none";
+	
 }

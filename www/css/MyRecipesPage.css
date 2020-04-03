@@ -56,7 +56,7 @@
 	float: left;
 }
 
-.w3-button {
+#addButton {
 	position: fixed;
 	right: 20px;
 	bottom: 20px;

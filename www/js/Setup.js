@@ -4,11 +4,11 @@ const bananabread = new Recipe("Bananabread", ["Breakfast", "Lunch"], "2:45", "1
 
 const chickenInOystersause = new Recipe("Chicken in oystersauce", ["Dinner"], "0:35", "4", "img/Indonesian recipe by Vera.jpeg", ["300 g rice", "2 red paprikas", "1 pak choi", "150 g corn", "400 gr chickenfilet", "1 bottle of Oystersauce"], "1. Clean the rice in water multiple times until the water is clear. Put 300 g of rice in a ricecooker and add water until all the rice is covered. Cook the rice for 20 minutes in the oven for 20 minutes at 900 Watts.<br><br>2. While the rice is cooking, cut all the vegetables and the chickenfilet in small parts. Put all the vegetables in a bowl.<br><br>3. Cook the chicken until it is almost done. Add the vegetables to the pan with the chicken. Let it cook for 5 minutes.<br><br>4. Add the Oystersauce to the fryingpan with chicken and vegetables. Add as much as you like.<br><br>5. Turn off the heat. Grab the rice and selamat makan!<br><br>Tip: add some fried onions to it and EAT IT WITH A SPOON!");
 
-const myRecipes = [bananabread, chickenInOystersause];
+const myRecipes = [];
 
-const favoriteRecipes = [chickenInOystersause];
+const favoriteRecipes = [];
 
-const discoverRecipes = [];
+const discoverRecipes = [bananabread, chickenInOystersause];
 
 if (localStorage.myRecipes == undefined) {
 	for (var myRecipe of myRecipes) {
