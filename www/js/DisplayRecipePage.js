@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var recipe = Recipe.unserialize(localStorage.displayRecipe);
 	
 	// Display name of recipe
-	document.getElementById("header").innerHTML += recipe.name;
+	document.getElementById("name").innerHTML = recipe.name;
 	
 	//Display photo
 	document.getElementById("image").src = recipe.image;
