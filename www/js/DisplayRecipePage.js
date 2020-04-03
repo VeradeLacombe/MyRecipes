@@ -34,4 +34,30 @@ $(document).ready(function() {
 	document.getElementById("backButton").onclick = function() {
 		window.location.href = localStorage.previousPage;
 	};
+	
+	if (recipe.isInLocalStorage("myRecipes")) {
+		// Hide the add button
+		document.getElementById("addButton").style.display = "none";
+		
+		// Edit button works
+		document.getElementById("edit").onclick = function() {
+			// TODO
+		};
+		
+		// Delete buttons works
+		document.getElementById("delete").onclick = function() {
+			recipe.deleteFromLocalStorage("myRecipes");
+			recipe.deleteFromLocalStorage("favoriteRecipes");
+			window.location.href = localStorage.previousPage;
+		};
+	} else {
+		// Hide the edit and delete buttons
+		document.getElementById("buttons").style.display = "none";
+		
+		// Add button works
+		document.getElementById("addButton").onclick = function () {
+			recipe.addToLocalStorage("myRecipes");
+			window.location.href = "MyRecipesPage.html";
+		};
+	}
 });
