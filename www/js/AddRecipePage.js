@@ -1,4 +1,4 @@
-import Recipe from "./Recipe.js";
+/* global Recipe */
 
 $(document).ready(function() {
 	$("#ingredient0").on("input", AddIngredients);

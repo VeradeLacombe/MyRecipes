@@ -1,4 +1,4 @@
-import Recipe from "./Recipe.js";
+/* global Recipe */
 
 function UpdateRecipeList() {
 	// Get and clear the recipe container

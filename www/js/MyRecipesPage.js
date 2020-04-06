@@ -1,4 +1,4 @@
-import Recipe from "./Recipe.js";
+/* global Recipe */
 
 function UpdateRecipeList() {
 	// Get and clear the recipe container
@@ -12,7 +12,6 @@ function UpdateRecipeList() {
 		for (var serializedRecipe of list) {
 			DisplayRecipe(Recipe.unserialize(serializedRecipe));
 		}
-		
 	}
 }
 
