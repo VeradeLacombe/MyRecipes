@@ -122,7 +122,7 @@ function addRecipe() {
 	
 	var image = "data:image/png;base64," + getBase64Image(document.getElementById("PicturePreview"));
 	
-	var recipe = new Recipe(name, types, time, servings, image, ingredients, method);
+	var recipe = new Recipe(name, types, time, servings, image, ingredients, method, false);
 	
 	recipe.addToLocalStorage("myRecipes");
 	if (wasInFavorites) recipe.addToLocalStorage("favoriteRecipes");

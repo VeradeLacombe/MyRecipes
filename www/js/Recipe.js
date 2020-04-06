@@ -1,5 +1,5 @@
 class Recipe {
-	constructor(name, types, time, servings, image, ingredients, method) {
+	constructor(name, types, time, servings, image, ingredients, method, discover) {
 		this.name = name;
 		this.types = types;
 		this.time = time;
@@ -7,6 +7,7 @@ class Recipe {
 		this.image = image;
 		this.ingredients = ingredients;
 		this.method = method;
+		this.discover = discover;
 	}
 	
 	createListItem() {
@@ -198,6 +199,11 @@ class Recipe {
 			// Update the localStorage
 			localStorage.setItem(storageName, JSON.stringify(list));
 		}
+		
+		// Put a discover recipe back in local storage
+		if (this.discover && storageName != "discoverRecipes" && !this.isInLocalStorage("discoverRecipes")) {
+			this.addToLocalStorage("discoverRecipes");
+		}
 	}
 	
 	equals(otherRecipe) {
@@ -228,6 +234,7 @@ class Recipe {
 			"image": this.image,
 			"ingredients": this.ingredients,
 			"method": this.method,
+			"discover": this.discover,
 		});
 	}
 	
@@ -242,6 +249,7 @@ class Recipe {
 		recipe.image = data.image;
 		recipe.ingredients = data.ingredients;
 		recipe.method = data.method;
+		recipe.discover = data.discover;
 		return recipe;
 	}
 }
