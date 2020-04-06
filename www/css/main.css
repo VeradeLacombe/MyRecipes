@@ -60,6 +60,16 @@ body {
    	transform: translate(0,-50%);
 }
 
+#randomButton {
+	font-size: 30px;
+	cursor: pointer;
+	color: #FFB1A4;
+	position: absolute;
+	right: 20px;
+   	top: 50%;
+   	transform: translate(0,-50%);
+}
+
 #header {
 	background-color: #595050;
 	color: #FFB1A4;

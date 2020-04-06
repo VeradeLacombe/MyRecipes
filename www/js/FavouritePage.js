@@ -43,7 +43,35 @@ function filterButtonPress(buttonElement){
 	UpdateRecipeList();
 }
 
+function randomButton() {
+	// Retrieve the recipe list from localStorage
+	if (localStorage.favoriteRecipes != undefined) {
+		var list = JSON.parse(localStorage.favoriteRecipes);
+		var filteredList = [];
+		
+		for (var serializedRecipe of list) {
+			var recipe = Recipe.unserialize(serializedRecipe);
+			
+			// Add the recipe to the filteredList, if it matches the current filter
+			if (filter != "All") {
+				if (!recipe.types.includes(filter)) continue;
+			}
+			filteredList.push(recipe);
+		}
+		
+		// Pick a random recipe from the filteredList
+		if (filteredList.length == 0) return;
+		var randomRecipe = filteredList[Math.floor(Math.random() * filteredList.length)];
+		
+		// Display the random recipe on the display page
+		localStorage.displayRecipe = randomRecipe;
+		localStorage.previousPage = window.location.href;
+		window.location.href = "DisplayRecipePage.html";
+	}
+}
+
 $(document).ready(function() {
 	$(".filterButton").on("click", function() {filterButtonPress(this)});
+	document.getElementById("randomButton").onclick = randomButton;
 	UpdateRecipeList();
 });
