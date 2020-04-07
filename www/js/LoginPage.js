@@ -1,3 +1,5 @@
+alert("Javascript runs");
+
 document.addEventListener("deviceready", onDeviceReadyEvent, false);
 
 function onDeviceReadyEvent() {
