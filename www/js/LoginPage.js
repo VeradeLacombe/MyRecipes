@@ -9,7 +9,7 @@ function onDeviceReadyEvent() {
 
 function onDeviceReady() {
 	alert("onDeviceReady fires");
-	document.getElementById("form").addEventListener("submit", function(evt) {
+	$("form").submit(function(evt) {
 		alert("form submit fires");
 		evt.preventDefault();
 		if (document.getElementById("username").value == "") return;
