@@ -90,7 +90,7 @@ class Recipe {
 		
 		// Create heart button
 		var heartButton = document.createElement("i");
-		heartButton.className = "material-icons";
+		heartButton.className = "material-icons heartButton";
 		
 		if(this.isInLocalStorage("favoriteRecipes")) {
 			// Make the heart button filled and red
