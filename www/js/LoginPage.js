@@ -3,12 +3,13 @@ alert("Javascript runs");
 document.addEventListener("deviceready", onDeviceReadyEvent, false);
 
 function onDeviceReadyEvent() {
-	alert("onDeviceReady fires");
+	alert("onDeviceReadyEvent fires");
 	onDeviceReady();
 }
 
 function onDeviceReady() {
-	$("#form").submit(function(evt) {
+	alert("onDeviceReady fires");
+	document.getElementById("form").addEventListener("submit", function(evt) {
 		alert("form submit fires");
 		evt.preventDefault();
 		if (document.getElementById("username").value == "") return;
